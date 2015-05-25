@@ -2,4 +2,4 @@
 
 Built with RubyOnRails
 
-
+A simple web app that let users upload a video review and also can comment on the existing reviews that already uploaded by users.

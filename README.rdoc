@@ -1,4 +1,5 @@
 == Movie Reviwer Web App
 
-<tt>Built with RubyOnRails<tt>
+Built with RubyOnRails
+
 

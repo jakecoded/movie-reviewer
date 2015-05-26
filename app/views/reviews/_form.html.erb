@@ -1,4 +1,5 @@
-<%= form_for([@movie, @movie.reviews.new]) do |f| %>
+<% args = params[:action] === 'show' ? @movie.reviews.new : @review %>
+<%= form_for([@movie, args]) do |f| %>
   <!-- <%# if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%#= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -11,15 +12,16 @@
     </div>
   <%# end %> -->
 
-  <div class="field">
+  <div class="field form-group">
+    <%= f.label :rating %>
     <div id="star-rating"></div>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment, :class => 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit Review', :class => 'btn btn-primary', :role => 'button' %>
   </div>
 <% end %>
 

@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
+    @movie_reviews = @movie.reviews.order('created_at DESC')
   end
 
   # GET /movies/new

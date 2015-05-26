@@ -1,39 +1,46 @@
-<h2>Sign up</h2>
+<div class="container">
+
+  <div style="width: 100%; max-width: 600px; margin: 0 auto">
+
+<br>
+<h2 style="text-align: center">Sign up</h2><br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :multipart => true } ) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
+    <%= f.text_field :username, autofocus: true, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :photo %><br>
-    <%= f.file_field :photo %>
+    <%= f.file_field :photo, :class => 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :class => 'btn btn-primary btn-block', :role => 'button' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+  </div>
+
+</div>

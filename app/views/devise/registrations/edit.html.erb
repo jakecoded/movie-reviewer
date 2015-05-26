@@ -2,8 +2,8 @@
 
 <div style="width: 100%; max-width: 600px; margin: 0 auto">
 
-
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<br>
+<h2 style="text-align: center">Edit <%= resource_name.to_s.humanize %></h2><br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: :true }) do |f| %>
   <%= devise_error_messages! %>

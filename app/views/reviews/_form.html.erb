@@ -1,4 +1,4 @@
-<%= params[:action] === "edit" ? form_for([@movie, @movie.reviews]) : form_for([@movie, @movie.reviews.new]) do |f| %>
+<%= form_for([@movie, @movie.reviews.new]) do |f| %>
   <!-- <%# if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%#= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -29,3 +29,5 @@
     scoreName: 'review[rating]'
   } )
 </script>
+
+<%#= params[:action] === "edit" ? form_for([@movie, @movie.reviews]) : form_for([@movie, @movie.reviews.new]) do |f| %>

@@ -3,6 +3,8 @@ class Movie < ActiveRecord::Base
 	belongs_to :user
 	has_many :reviews
 
+	searchkick word_start: [:title]
+
 	validates :title, presence: true, length: { minimum: 5, maximum: 50 }
 	validates :description, presence: true
 	validates :duration, presence: true, numericality: true

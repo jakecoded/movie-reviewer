@@ -34,6 +34,12 @@
 		  <%= @movie.description %>
 		</p>
 
+		<br>
+		<p>
+			<strong>Review Author:</strong>
+			<%= @movie.user.username %>
+		</p>
+
 	</div>
 	<div style="clear: both"></div>
 </div>
@@ -41,13 +47,23 @@
 <% @movie_reviews.each do | r | %>
 	<div class="well">
 		<div class="col-md-1"><p><%= image_tag r.user.photo(:thumb), :class => "img-thumbnail" %></p></div>
-		<div class="col-md-11"></div>
-		<div class="star-rating" data-number= <%= r.rating %> ></div>
-		<% @count = r.rating %>
-		<p><%= r.comment %></p>
-		
-		<p><%= time_ago_in_words(r.created_at) %> ago</p>
-		<p><%= link_to 'Edit', edit_movie_review_path(@movie, r) if current_user %></p>
+		<div class="col-md-11">
+			<div class="star-rating" data-number= <%= r.rating %> ></div>
+			<span><small><strong><%= r.user.username %></strong></small></span>
+			<br>
+			<br>
+			<% @count = r.rating %>
+			<p><%= r.comment %></p>
+			
+			<p>
+				<small>Created: <%= time_ago_in_words(r.created_at) %> ago</small> |
+				<small>Edited: <%= time_ago_in_words(r.updated_at) %> ago</small>
+				<% if current_user %>
+				<%= link_to 'Edit', edit_movie_review_path(@movie, r), :class => 'btn btn-primary btn-xs', :style => 'color: #FFF' if current_user.id === r.user.id%>
+				<% end %>
+			</p>
+		</div>
+		<div style="clear:both"></div>
 	</div>
 <% end %>
 

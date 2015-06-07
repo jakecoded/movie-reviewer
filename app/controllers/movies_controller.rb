@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  before_action :set_movie, only: [:show, :edit, :update, :destroy, :getmovie]
   before_action :authenticate_user!, only: [:edit, :destroy]
 
 
@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
   # GET /movies/1.json
   def show
     @movie_reviews = @movie.reviews.order('updated_at DESC')
+    render json: @movie, status: 200
   end
 
   # GET /movies/new
@@ -62,6 +63,11 @@ class MoviesController < ApplicationController
       format.html { redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # Return Single Movie Data with Jason Format
+  def getmovie
+    render json: @movie, status: 200
   end
 
   private

@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
   # GET /movies/1.json
   def show
     @movie_reviews = @movie.reviews.order('updated_at DESC')
+    
     render json: @movie, status: 200
   end
 

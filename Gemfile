@@ -36,10 +36,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.4.1'
 gem 'paperclip', '~> 4.2.1'
 gem 'searchkick', '~> 0.8.7'
+gem 'thin'
 gem 'rails_12factor', group: :production
 
-#group :development, :test do
-group :production do
+group :development, :test do
+#group :production do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
